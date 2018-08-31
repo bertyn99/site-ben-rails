@@ -13,3 +13,19 @@
  *= require_tree .
  *= require_self
  */
+ header a{
+    float: left;
+    color: wheat;
+    text-align-last: center;
+    
+}
+ul.navbar{
+    list-style-type: none;
+    margin: 25px;
+    padding: 25px;
+    height: 9px;
+    overflow: hidden;
+    border-radius: 50px;
+    background-color:#A9BF65;
+    font-size: 25px
+}

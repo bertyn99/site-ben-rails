@@ -1,22 +1,5 @@
-<header>
-       
-    <div class="banner">
-        <div class="bannerup"> <%= image_tag "RandClogo.jpg" %></div>
-               
-    </div>
-    <ul class="navbar">
-            <li class="nav-item"> <a  href="<%= articles_path %>">News</a> </li>
-           
-            <li class="nav-item"> <a href="<%= contact_path %>">Contact</a></li>  
-                       
-            <li class="nav-item"> <a  href="<%= about_path %>">About</a>  </li>
-           
-            <li class="nav-item"><a  href="<%= services_path %>">Our services</a></li>
-               
-                
-     </ul>
-</header>
 
+<%= render "shared/header" %>
 <div><h1>News</h1></div>
 <div>
     <% Article.all.each do |i| %>
