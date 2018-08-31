@@ -16,7 +16,7 @@
     <% @articles.each do |article| %>
       <tr>
         <td><%= article.title %></td>
-        <td><%= article.content %></td>
+        <td><%= truncate article.content, lenght:200 %></td>
         <td><%= article.author %></td>
         <td><%= link_to 'Show', article %></td>
         <td><%= link_to 'Edit', edit_article_path(article) %></td>

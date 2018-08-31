@@ -24,7 +24,8 @@
             
             <div class="content">
             <h3><%= i.title %></h4>
-            <%= i.content %>
+            <%= truncate i.content, lenght:80 %>
+            <%= link_to "lire la suite", article_path(i.id), class: "card-link" %>
             </div>    
         </div>
     <% end %>
