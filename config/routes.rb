@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :admins
   root to:'static_pages#index'
   get '/about', to:'static_pages#about', as: 'about'
   get '/services', to:'static_pages#services', as: 'services'

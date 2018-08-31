@@ -5,36 +5,65 @@ class ArticlesController < ApplicationController
   # GET /articles.json
   def index
     @articles = Article.all
+    if current_admin
+    
+    else
+      
+      redirect_to root_path
+      flash[:notice]= "Please stop try to do the admin job"
+    end
   end
 
   # GET /articles/1
   # GET /articles/1.json
   def show
+   
   end
 
   # GET /articles/new
   def new
     @article = Article.new
+    if current_admin
+     
+    else
+      redirect_to articles_path
+      flash[:notice]= "Please stop try to do the admin job"
+    end
+
   end
 
   # GET /articles/1/edit
   def edit
+    if current_admin
+     
+      
+    else
+      redirect_to root_path
+      flash[:notice]= "Please stop try to do the admin job"
+    end
+
   end
 
   # POST /articles
   # POST /articles.json
   def create
     @article = Article.new(article_params)
-
-    respond_to do |format|
-      if @article.save
-        format.html { redirect_to @article, notice: 'Article was successfully created.' }
-        format.json { render :show, status: :created, location: @article }
-      else
-        format.html { render :new }
-        format.json { render json: @article.errors, status: :unprocessable_entity }
+    if current_admin
+      respond_to do |format|
+        if @article.save
+          format.html { redirect_to @article, notice: 'Article was successfully created.' }
+          format.json { render :show, status: :created, location: @article }
+        else
+          format.html { render :new }
+          format.json { render json: @article.errors, status: :unprocessable_entity }
+        end
       end
+      
+    else
+      redirect_to root_path
+      flash[:notice]= "Please stop try to do the admin job"
     end
+   
   end
 
   # PATCH/PUT /articles/1
