@@ -16,3 +16,18 @@
                 
      </ul>
 </header>
+
+<div><h1>News</h1></div>
+<div>
+    <% Article.all.each do |i| %>
+        <div class="card">
+            
+            <div class="content">
+            <h3><%= i.title %></h4>
+            <%= i.content %>
+            </div>    
+        </div>
+    <% end %>
+
+
+</div>
