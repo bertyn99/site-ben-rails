@@ -5,7 +5,7 @@ class ArticlesController < ApplicationController
   # GET /articles.json
   def index
     @articles = Article.all
-    if current_admin
+    if current_user
     
     else
       
@@ -23,7 +23,7 @@ class ArticlesController < ApplicationController
   # GET /articles/new
   def new
     @article = Article.new
-    if current_admin
+    if current_user
      
     else
       redirect_to articles_path
@@ -34,7 +34,7 @@ class ArticlesController < ApplicationController
 
   # GET /articles/1/edit
   def edit
-    if current_admin
+    if current_user
      
       
     else
@@ -48,7 +48,7 @@ class ArticlesController < ApplicationController
   # POST /articles.json
   def create
     @article = Article.new(article_params)
-    if current_admin
+    if current_user
       respond_to do |format|
         if @article.save
           format.html { redirect_to @article, notice: 'Article was successfully created.' }
