@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :admins
+  
+  devise_for :users
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   root to:'static_pages#index'
   get '/about', to:'static_pages#about', as: 'about'
   get '/services', to:'static_pages#services', as: 'services'
